@@ -12,3 +12,70 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id       String @id @default(uuid())
+  name     String
+  email    String
+  password String
+  tasks    Task[]
+}
+
+model Task {
+  localId         String?
+  local           Local?          @relation(fields: [localId], references: [id], onDelete: SetNull)
+  classficationId String?
+  classfication   Classification? @relation(fields: [classficationId], references: [id], onDelete: SetNull)
+  id              String          @id @default(uuid())
+  title           String          @db.Char(20)
+  categories      Category[]
+  description     String
+  statusId        String?
+  Status          Status?         @relation(fields: [statusId], references: [id], onDelete: SetNull)
+  links           Link[]
+  date            DateTime?
+  files           File[]
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime?
+  userId          String?
+  user            User?           @relation(fields: [userId], references: [id], onDelete: SetNull)
+  lastUserId      String?
+}
+
+model Link {
+  id     String @id @default(uuid())
+  url    String
+  taskId String
+  task   Task   @relation(fields: [taskId], references: [id], onDelete: Cascade)
+}
+
+model File {
+  id     String @id @default(uuid())
+  url    String
+  taskId String
+  task   Task   @relation(fields: [taskId], references: [id], onDelete: Cascade)
+}
+
+model Local {
+  id    String @id @default(uuid())
+  name  String @db.Char(20)
+  tasks Task[]
+}
+
+model Category {
+  id    String @id @default(uuid())
+  name  String @db.Char(30)
+  tasks Task[]
+}
+
+model Status {
+  id    String @id @default(uuid())
+  name  String @db.Char(15)
+  tasks Task[]
+}
+
+model Classification {
+  id    String @id @default(uuid())
+  name  String @db.Char(20)
+  tasks Task[]
+}
