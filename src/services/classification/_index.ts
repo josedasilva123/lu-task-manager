@@ -1,6 +1,7 @@
 import { create } from "./create";
 import { getMany } from "./getMany";
+import { getOne } from "./getOne";
 import { remove } from "./remove";
 import { update } from "./update";
 
-export const classificationService = { create, getMany, remove, update };
+export const classificationService = { create, getMany, getOne, remove, update };
