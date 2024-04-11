@@ -53,9 +53,10 @@ model Link {
 model File {
   id     String @id @default(uuid())
   name   String
+  key    String
   url    String
-  taskId String
-  task   Task   @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  taskId String?
+  task   Task?   @relation(fields: [taskId], references: [id], onDelete: Cascade)
 }
 
 model Local {
