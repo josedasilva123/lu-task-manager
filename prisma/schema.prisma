@@ -22,25 +22,25 @@ model User {
 }
 
 model Task {
+  id              String          @id @default(uuid())
   localId         String?
   local           Local?          @relation(fields: [localId], references: [id], onDelete: SetNull)
   classficationId String?
   classfication   Classification? @relation(fields: [classficationId], references: [id], onDelete: SetNull)
-  id              String          @id @default(uuid())
   title           String          @db.Char(20)
   categories      Category[]
   description     String
   statusId        String?
-  Status          Status?         @relation(fields: [statusId], references: [id], onDelete: SetNull)
+  status          Status?         @relation(fields: [statusId], references: [id], onDelete: SetNull)
   links           Link[]
-  date            DateTime?
   files           File[]
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime?
+  date            DateTime?  
   userId          String?
   user            User?           @relation(fields: [userId], references: [id], onDelete: SetNull)
   lastUserId      String?
   isDeleted       Boolean         @default(false)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime?
 }
 
 model Link {
@@ -51,7 +51,7 @@ model Link {
 }
 
 model File {
-  id     String @id @default(uuid())
+  id     String  @id @default(uuid())
   name   String
   key    String
   url    String
