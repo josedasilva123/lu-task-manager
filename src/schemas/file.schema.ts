@@ -10,6 +10,6 @@ export const fileSchema = z.object({
 
 export type TFile = z.infer<typeof fileSchema>;
 
-export const fileCreateDataSchema = fileSchema.pick({ name: true, key: true, url: true });
+export const fileCreateSchema = fileSchema.pick({ name: true, key: true, url: true });
 
-export type TFileCreateData = z.infer<typeof fileCreateDataSchema>;
+export type TFileCreateData = z.infer<typeof fileCreateSchema>;

@@ -7,6 +7,6 @@ export const classificationSchema = z.object({
 
 export type TClassfication = z.infer<typeof classificationSchema>;
 
-export const classificationCreateDataSchema = classificationSchema.pick({ name: true });
+export const classificationCreateSchema = classificationSchema.pick({ name: true });
 
-export type TClassficationBody = z.infer<typeof classificationCreateDataSchema>;
+export type TClassficationBody = z.infer<typeof classificationCreateSchema>;

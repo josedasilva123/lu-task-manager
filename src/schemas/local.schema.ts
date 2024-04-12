@@ -7,6 +7,6 @@ export const localSchema = z.object({
 
 export type TLocal = z.infer<typeof localSchema>;
 
-export const localCreateDataSchema = localSchema.pick({ name: true });
+export const localCreateSchema = localSchema.pick({ name: true });
 
-export type TLocalBody = z.infer<typeof localCreateDataSchema>;
+export type TLocalBody = z.infer<typeof localCreateSchema>;

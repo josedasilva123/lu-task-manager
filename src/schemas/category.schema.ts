@@ -7,6 +7,6 @@ export const categorySchema = z.object({
 
 export type TCategory = z.infer<typeof categorySchema>;
 
-export const categoryCreateDataSchema = categorySchema.pick({ name: true });
+export const categoryCreateSchema = categorySchema.pick({ name: true });
 
-export type TCategoryBody = z.infer<typeof categoryCreateDataSchema>;
+export type TCategoryBody = z.infer<typeof categoryCreateSchema>;

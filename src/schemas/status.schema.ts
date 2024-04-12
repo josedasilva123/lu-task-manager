@@ -7,6 +7,6 @@ export const statusSchema = z.object({
 
 export type TStatus = z.infer<typeof statusSchema>;
 
-export const statusCreateDataSchema = statusSchema.pick({ name: true });
+export const statusCreateSchema = statusSchema.pick({ name: true });
 
-export type TStatusBody = z.infer<typeof statusCreateDataSchema>;
+export type TStatusBody = z.infer<typeof statusCreateSchema>;

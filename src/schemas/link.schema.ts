@@ -8,6 +8,6 @@ export const linkSchema = z.object({
 
 export type TLink = z.infer<typeof linkSchema>;
 
-export const linkCreateDataSchema = linkSchema.pick({ url: true });
+export const linkCreateSchema = linkSchema.pick({ url: true });
 
-export type TLinkBody = z.infer<typeof linkCreateDataSchema>;
+export type TLinkBody = z.infer<typeof linkCreateSchema>;
