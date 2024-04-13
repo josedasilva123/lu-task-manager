@@ -1,7 +1,7 @@
 import { prisma } from "../../database/prisma";
 
 export const getOne = async (id: string) => {
-   const task = await prisma.task.findFirst({
+   const task = await prisma.task.findUnique({
       where: { id },
       include: {
          local: true,
