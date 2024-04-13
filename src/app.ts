@@ -1,3 +1,4 @@
+import "dotenv/config";
 import fastifyJwt from "@fastify/jwt";
 import fastify from "fastify";
 import { env } from "./env";
