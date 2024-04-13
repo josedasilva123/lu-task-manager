@@ -3,16 +3,21 @@ import {
    TUserCreateData,
    TUserLoginData,
    userCreateSchema,
+   userLoginSchema,
 } from "../schemas/user.schema";
 import { userService } from "../services/user/_index";
 import { validateBody } from "../hooks/validateBody";
+import { authenticate } from "../hooks/authenticate";
+import { IDecodedToken } from "../interfaces/token.interface";
 
 export const userControllers = async (fastify: FastifyInstance) => {
    fastify.post<{ Body: TUserCreateData }>(
       "/register",
-      { onRequest: async (req, res) => {
-        validateBody(req, res, userCreateSchema);
-      }},
+      {
+         preHandler: async (req, res) => {
+            validateBody(req, res, userCreateSchema);
+         },
+      },
       async (req, res) => {
          const response = await userService.create(req.body);
 
@@ -20,14 +25,25 @@ export const userControllers = async (fastify: FastifyInstance) => {
       }
    );
 
-   fastify.get("/profile", async (req, res) => {
-      console.log(req.jwtDecode());
-      return res.status(200).send();
-   });
+   fastify.get("/profile", { onRequest: authenticate },  async (req, res) => {
+      const { id } = await req.jwtDecode<IDecodedToken>();  
 
-   fastify.post<{ Body: TUserLoginData }>("/login", async (req, res) => {
-      const response = await userService.login(req.body);
+      const response = await userService.getOne(id);
 
       return res.status(200).send(response);
    });
+
+   fastify.post<{ Body: TUserLoginData }>(
+      "/login",
+      {
+         preHandler: async (req, res) => {
+            validateBody(req, res, userLoginSchema);
+         },
+      },
+      async (req, res) => {
+         const response = await userService.login(req.body);
+
+         return res.status(200).send(response);
+      }
+   );
 };

@@ -1,6 +1,5 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import { AppError } from "./AppError";
-import { ZodError } from "zod";
 
 export const errorHandler = (error: Error, req: FastifyRequest, res: FastifyReply) => {
    if (error instanceof AppError) {
@@ -8,5 +7,5 @@ export const errorHandler = (error: Error, req: FastifyRequest, res: FastifyRepl
    }
 
    console.log(error);
-   return res.status(500).send({ message: "Internal server error."});
+   return res.status(500).send({ message: "Internal server error." });
 };
