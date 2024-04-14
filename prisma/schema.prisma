@@ -27,7 +27,7 @@ model Task {
   local           Local?          @relation(fields: [localId], references: [id], onDelete: SetNull)
   classficationId String?
   classfication   Classification? @relation(fields: [classficationId], references: [id], onDelete: SetNull)
-  title           String          @db.Char(20)
+  title           String          @db.VarChar(20)
   categories      Category[]
   description     String
   statusId        String?
@@ -61,24 +61,24 @@ model File {
 
 model Local {
   id    String @id @default(uuid())
-  name  String @db.Char(20)
+  name  String @db.VarChar(20)
   tasks Task[]
 }
 
 model Category {
   id    String @id @default(uuid())
-  name  String @db.Char(30)
+  name  String @db.VarChar(30)
   tasks Task[]
 }
 
 model Status {
   id    String @id @default(uuid())
-  name  String @db.Char(15)
+  name  String @db.VarChar(15)
   tasks Task[]
 }
 
 model Classification {
   id    String @id @default(uuid())
-  name  String @db.Char(20)
+  name  String @db.VarChar(20)
   tasks Task[]
 }

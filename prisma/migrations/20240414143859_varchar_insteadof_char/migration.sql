@@ -1,0 +1,14 @@
+-- AlterTable
+ALTER TABLE "Category" ALTER COLUMN "name" SET DATA TYPE VARCHAR(30);
+
+-- AlterTable
+ALTER TABLE "Classification" ALTER COLUMN "name" SET DATA TYPE VARCHAR(20);
+
+-- AlterTable
+ALTER TABLE "Local" ALTER COLUMN "name" SET DATA TYPE VARCHAR(20);
+
+-- AlterTable
+ALTER TABLE "Status" ALTER COLUMN "name" SET DATA TYPE VARCHAR(15);
+
+-- AlterTable
+ALTER TABLE "Task" ALTER COLUMN "title" SET DATA TYPE VARCHAR(20);
