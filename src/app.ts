@@ -5,6 +5,7 @@ import { errorHandler } from "./error/error";
 import { userControllers } from "./controllers/user.controllers";
 import { categoryControllers } from "./controllers/category.controller";
 import { classificationControllers } from "./controllers/classification.controller";
+import { statusControllers } from "./controllers/status.controllers";
 
 export const app = fastify();
 
@@ -21,5 +22,9 @@ app.register(categoryControllers, {
 });
 
 app.register(classificationControllers, {
-   prefix: "/classifications"
-})
+   prefix: "/classifications",
+});
+
+app.register(statusControllers, {
+   prefix: "/status",
+});
