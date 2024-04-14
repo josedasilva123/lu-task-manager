@@ -4,6 +4,7 @@ import { env } from "./env";
 import { errorHandler } from "./error/error";
 import { userControllers } from "./controllers/user.controllers";
 import { categoryControllers } from "./controllers/category.controller";
+import { classificationControllers } from "./controllers/classification.controller";
 
 export const app = fastify();
 
@@ -18,3 +19,7 @@ app.register(userControllers, {
 app.register(categoryControllers, {
    prefix: "/categories",
 });
+
+app.register(classificationControllers, {
+   prefix: "/classifications"
+})
