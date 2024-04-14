@@ -6,6 +6,7 @@ import { userControllers } from "./controllers/user.controllers";
 import { categoryControllers } from "./controllers/category.controller";
 import { classificationControllers } from "./controllers/classification.controller";
 import { statusControllers } from "./controllers/status.controllers";
+import { localControllers } from "./controllers/local.controllers";
 
 export const app = fastify();
 
@@ -27,4 +28,8 @@ app.register(classificationControllers, {
 
 app.register(statusControllers, {
    prefix: "/status",
+});
+
+app.register(localControllers, {
+   prefix: "/locals",
 });
