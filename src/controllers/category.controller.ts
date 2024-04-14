@@ -1,8 +1,8 @@
 import { FastifyInstance } from "fastify";
 import { TCategoryBody, categoryCreateSchema } from "../schemas/category.schema";
 import { authenticate } from "../hooks/authenticate";
-import { categoryService } from "../services/category/_index";
 import { validateBody } from "../hooks/validateBody";
+import { categoryService } from "../services/category/_index";
 import { isCategoryIdValid } from "../hooks/isCategoryIdValid";
 
 interface Params {
