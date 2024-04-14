@@ -1,18 +1,12 @@
-import { FastifyReply, FastifyRequest, HookHandlerDoneFunction } from "fastify";
+import { FastifyReply, FastifyRequest } from "fastify";
 import { AppError } from "../error/AppError";
 
-export const authenticate = async (
-   req: FastifyRequest,
-   res: FastifyReply,
-   done: HookHandlerDoneFunction
-) => {
-    try {
-        await req.jwtVerify();
-        done();    
-    } catch (error) {
-        console.log(error);
-        if(error instanceof Error){
-            throw new AppError(error.message, 401);   
-        }        
-    }
+export const authenticate = async (req: FastifyRequest, res: FastifyReply) => {
+   try {
+      await req.jwtVerify();
+   } catch (error) {
+      if (error instanceof Error) {
+         throw new AppError(error.message, 401);
+      }
+   }
 };

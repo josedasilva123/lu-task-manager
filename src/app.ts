@@ -3,6 +3,7 @@ import fastify from "fastify";
 import { env } from "./env";
 import { errorHandler } from "./error/error";
 import { userControllers } from "./controllers/user.controllers";
+import { categoryControllers } from "./controllers/category.controller";
 
 export const app = fastify();
 
@@ -11,5 +12,9 @@ app.setErrorHandler(errorHandler);
 app.register(fastifyJwt, { secret: env.JWT_SECRET });
 
 app.register(userControllers, {
-    prefix: "/auth"
+   prefix: "/auth",
+});
+
+app.register(categoryControllers, {
+   prefix: "/categories",
 });
