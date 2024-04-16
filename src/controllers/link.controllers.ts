@@ -2,8 +2,8 @@ import { FastifyInstance } from "fastify";
 import { linkService } from "../services/link/_index";
 import { TLinkBody, linkCreateSchema } from "../schemas/link.schema";
 import { validateBody } from "../hooks/validateBody";
-import { isTaskIdValid } from "../hooks/isTaskIdValid";
 import { isLinkIdValid } from "../hooks/isLinkIdValid";
+import { isLinkTaskIdValid } from "../hooks/isLinkTaskIdValid";
 
 interface Params {
    taskId: string;
@@ -14,7 +14,7 @@ interface RemoveParams extends Params {
 }
 
 export const linkControllers = async (fastify: FastifyInstance) => {
-   fastify.addHook("preHandler", isTaskIdValid);
+   fastify.addHook("preHandler", isLinkTaskIdValid);
 
    fastify.post<{ Body: TLinkBody; Params: Params }>(
       "/",
