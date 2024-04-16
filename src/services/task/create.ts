@@ -33,17 +33,3 @@ export const create = async (userId: string, data: TTaskCreateData) => {
    return task;
 };
 
-/*
-export const taskCreateSchema = taskSchema.pick({
-    localId: true,
-    classificationId: true,
-    title: true,
-    description: true,
-    statudId: true,
-    date: true,
-}).merge(z.object({
-    categories: z.array(connectSchema),
-    links: z.array(linkCreateDataSchema),
-    files: z.array(connectSchema),
-}));
-*/
