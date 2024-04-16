@@ -11,6 +11,7 @@ import { taskService } from "../services/task/_index";
 import { IDecodedToken } from "../interfaces/token.interface";
 import { IFilters } from "../interfaces/filter.interface";
 import { IPagination } from "../interfaces/pagination.interface";
+import { isTaskIdValid } from "../hooks/isTaskIdValid";
 
 interface Params {
    id: string;
@@ -59,17 +60,22 @@ export const taskControllers = async (fastify: FastifyInstance) => {
       return res.status(200).send(response);
    });
 
-   fastify.delete<{ Params: Params }>("/:id", async (req, res) => {
-      await taskService.softRemove(req.params.id);
+   fastify.delete<{ Params: Params }>(
+      "/:id",
+      { preHandler: isTaskIdValid },
+      async (req, res) => {
+         await taskService.softRemove(req.params.id);
 
-      return res.status(204).send();
-   });
+         return res.status(204).send();
+      }
+   );
 
    fastify.patch<{ Body: TTaskUpdateData; Params: Params }>(
       "/:id",
       {
          preHandler: async (req, res) => {
             await validateBody(req, res, taskUpdateSchema);
+            await isTaskIdValid(req, res);
          },
       },
       async (req, res) => {
