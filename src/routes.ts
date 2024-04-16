@@ -1,6 +1,6 @@
 import { FastifyInstance } from "fastify";
-import { categoryControllers } from "./controllers/category.controller";
-import { classificationControllers } from "./controllers/classification.controller";
+import { categoryControllers } from "./controllers/category.controllers";
+import { classificationControllers } from "./controllers/classification.controllers";
 import { localControllers } from "./controllers/local.controllers";
 import { statusControllers } from "./controllers/status.controllers";
 import { userControllers } from "./controllers/user.controllers";
