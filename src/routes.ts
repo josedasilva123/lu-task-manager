@@ -4,6 +4,7 @@ import { classificationControllers } from "./controllers/classification.controll
 import { localControllers } from "./controllers/local.controllers";
 import { statusControllers } from "./controllers/status.controllers";
 import { userControllers } from "./controllers/user.controllers";
+import { taskControllers } from "./controllers/task.controllers";
 
 export const routes = async (fastify: FastifyInstance) => {
    fastify.register(userControllers, {
@@ -24,5 +25,9 @@ export const routes = async (fastify: FastifyInstance) => {
 
    fastify.register(localControllers, {
       prefix: "/locals",
+   });
+
+   fastify.register(taskControllers, {
+      prefix: "/task",
    });
 };
