@@ -55,8 +55,7 @@ model File {
   name   String
   key    String
   url    String
-  taskId String?
-  task   Task?   @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  tasks Task[]
 }
 
 model Local {

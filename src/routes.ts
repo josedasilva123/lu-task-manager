@@ -5,6 +5,7 @@ import { localControllers } from "./controllers/local.controllers";
 import { statusControllers } from "./controllers/status.controllers";
 import { userControllers } from "./controllers/user.controllers";
 import { taskControllers } from "./controllers/task.controllers";
+import { fileControllers } from "./controllers/file.controllers";
 
 export const routes = async (fastify: FastifyInstance) => {
    fastify.register(userControllers, {
@@ -28,6 +29,10 @@ export const routes = async (fastify: FastifyInstance) => {
    });
 
    fastify.register(taskControllers, {
-      prefix: "/task",
+      prefix: "/tasks",
+   });
+
+   fastify.register(fileControllers, {
+      prefix: "/files",
    });
 };
