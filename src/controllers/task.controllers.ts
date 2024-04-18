@@ -13,6 +13,7 @@ import { IFilters } from "../interfaces/filter.interface";
 import { IPagination } from "../interfaces/pagination.interface";
 import { isTaskIdValid } from "../hooks/isTaskIdValid";
 import { linkControllers } from "./link.controllers";
+import { connectFileControllers } from "./connectFile.controllers";
 
 interface Params {
    id: string;
@@ -89,6 +90,10 @@ export const taskControllers = async (fastify: FastifyInstance) => {
    );
 
    fastify.register(linkControllers, {
-      prefix: "/:taskId/links"
-   })
+      prefix: "/:taskId/links",
+   });
+
+   fastify.register(connectFileControllers, {
+      prefix: "/:taskId/files",
+   });
 };
