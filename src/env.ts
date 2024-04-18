@@ -17,5 +17,5 @@ export const env = envSchema.parse({
    DATABASE_URL: process.env.DATABASE_URL,
    JWT_SECRET: process.env.JWT_SECRET,
    S3_BUCKET_NAME: process.env.S3_BUCKET_NAME,
-   S3_BUCKET_BASE_URL: process.env.AWS_BUCKET_BASE_URL
+   S3_BUCKET_BASE_URL: process.env.S3_BUCKET_BASE_URL
 });
