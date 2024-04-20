@@ -3,6 +3,7 @@ import { z } from "zod";
 export const statusSchema = z.object({
    id: z.string().min(1),
    name: z.string().min(1).max(20),
+   createdAt: z.string().datetime(),
 });
 
 export type TStatus = z.infer<typeof statusSchema>;

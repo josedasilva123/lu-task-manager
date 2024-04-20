@@ -5,6 +5,7 @@ export const fileSchema = z.object({
     name: z.string().min(1),
     key: z.string().min(1),
     url: z.string().url(),
+    createdAt: z.string().datetime(),
 });
 
 export type TFile = z.infer<typeof fileSchema>;

@@ -3,7 +3,8 @@ import { z } from "zod";
 export const linkSchema = z.object({
     id: z.string().min(1),
     url: z.string().url(),
-    taskId: z.string().min(1)
+    taskId: z.string().min(1),
+    createdAt: z.string().datetime(),
 })
 
 export type TLink = z.infer<typeof linkSchema>;

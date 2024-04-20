@@ -48,6 +48,7 @@ model Link {
   url    String
   taskId String
   task   Task   @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  createdAt       DateTime        @default(now())
 }
 
 model File {
@@ -56,28 +57,33 @@ model File {
   key    String
   url    String
   tasks Task[]
+  createdAt       DateTime        @default(now())
 }
 
 model Local {
   id    String @id @default(uuid())
   name  String @db.VarChar(20)
   tasks Task[]
+  createdAt       DateTime        @default(now())
 }
 
 model Category {
   id    String @id @default(uuid())
   name  String @db.VarChar(30)
   tasks Task[]
+  createdAt       DateTime        @default(now())
 }
 
 model Status {
   id    String @id @default(uuid())
   name  String @db.VarChar(15)
   tasks Task[]
+  createdAt       DateTime        @default(now())
 }
 
 model Classification {
   id    String @id @default(uuid())
   name  String @db.VarChar(20)
   tasks Task[]
+  createdAt       DateTime        @default(now())
 }
