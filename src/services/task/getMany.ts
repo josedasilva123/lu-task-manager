@@ -19,6 +19,7 @@ export const getMany = async (
       },
       skip,
       take,
+      orderBy: { createdAt: "desc"}
    });
 
    return tasks;
