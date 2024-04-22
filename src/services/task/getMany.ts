@@ -6,6 +6,8 @@ export const getMany = async (
    filters: IFilters,
    { skip, take }: IPagination = { skip: 0, take: 20 }
 ) => {
+   const count = await prisma.task.count({ where: { isDeleted: false }});
+
    const tasks = await prisma.task.findMany({
       where: {
          categories: { some: { id: filters.categoryId } },
@@ -19,8 +21,8 @@ export const getMany = async (
       },
       skip,
       take,
-      orderBy: { createdAt: "desc"}
+      orderBy: { createdAt: "desc"},
    });
 
-   return tasks;
+   return { count, tasks };
 };
