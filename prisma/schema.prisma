@@ -45,6 +45,7 @@ model Task {
 
 model Link {
   id     String @id @default(uuid())
+  title  String
   url    String
   taskId String
   task   Task   @relation(fields: [taskId], references: [id], onDelete: Cascade)
