@@ -22,7 +22,9 @@ export const getMany = async (
               ]
             : undefined,
          isDeleted: false,
+         
       },
+      include: { status: true },
       skip,
       take,
       orderBy: { createdAt: "desc" },
