@@ -47,8 +47,8 @@ export const taskControllers = async (fastify: FastifyInstance) => {
       };
 
       const pagination: IPagination = {
-         skip: req.query.skip,
-         take: req.query.take,
+         skip: req.query.skip ? +req.query.skip : undefined,
+         take: req.query.take ? +req.query.take : undefined,
       };
 
       const response = await taskService.getMany(filters, pagination);
