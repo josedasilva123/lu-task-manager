@@ -66,6 +66,9 @@ export const taskUpdateSchema = taskSchema
    .merge(
       z.object({
          categories: z.array(connectSchema),
+         files: z.array(connectSchema),
+         creatingLinks: z.array(linkCreateSchema),
+         deletingLinks: z.array(connectSchema),
       })
    )
    .partial();
