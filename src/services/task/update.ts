@@ -2,6 +2,8 @@ import { prisma } from "../../database/prisma";
 import { TTaskUpdateData } from "../../schemas/task.schema";
 
 export const update = async (id: string, userId: string, data: TTaskUpdateData) => {
+   const user = await prisma.user.findUnique({ where: { id: userId } });
+
    const task = await prisma.task.update({
       where: { id },
       data: {
@@ -11,13 +13,13 @@ export const update = async (id: string, userId: string, data: TTaskUpdateData) 
          description: data.description,
          statusId: data.statusId,
          date: data.date,
-         lastUserId: userId,
+         lastUserName: user?.name,
          categories: { set: data.categories },
          links: {
             createMany: { data: data.creatingLinks ? data.creatingLinks : [] },
             deleteMany: data.deletingLinks,
          },
-         files: { set: data.files },       
+         files: { set: data.files },
       },
    });
 

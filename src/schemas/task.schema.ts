@@ -27,7 +27,7 @@ export const taskSchema = z.object({
    files: z.array(fileSchema),
    date: z.string().min(1).nullish(),
    userId: z.string().min(1),
-   lastUserId: z.string().min(1).nullish(),
+   lastUserName: z.string().min(1).nullish(),
    createdAt: z.string().datetime(),
    updatedAt: z.string().datetime().nullish(),
    isDeleted: z.boolean(),
