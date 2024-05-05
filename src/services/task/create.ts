@@ -21,13 +21,6 @@ export const create = async (userId: string, data: TTaskCreateData) => {
          },
          userId,
       },
-      include: {
-         local: true,
-         classfication: true,
-         categories: true,
-         links: true,
-         files: true,
-      },
    });
 
    return task;

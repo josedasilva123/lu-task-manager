@@ -19,13 +19,6 @@ export const update = async (id: string, userId: string, data: TTaskUpdateData) 
          },
          files: { set: data.files },       
       },
-      include: {
-         local: true,
-         classfication: true,
-         categories: true,
-         links: true,
-         files: true,
-      },
    });
 
    return task;
