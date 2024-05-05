@@ -26,6 +26,7 @@ export const getMany = async (
       include: {
          local: true,
          classfication: true,
+         status: true,
          categories: true,
          user: {
             select: { id: true, name: true, email: true },
