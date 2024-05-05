@@ -6,7 +6,8 @@
    "scripts": {
       "start": "node dist/server.js",
       "build": "npx tsc",
-      "dev": "tsnd --env-file .env src/server.ts"
+      "dev": "tsnd --env-file .env src/server.ts",
+      "migrate": "npx prisma migrate deploy"
    },
    "keywords": [],
    "author": "",
