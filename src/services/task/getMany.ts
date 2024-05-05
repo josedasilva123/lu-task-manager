@@ -23,7 +23,14 @@ export const getMany = async (
 
    const tasks = await prisma.task.findMany({
       where,
-      include: { status: true },
+      include: {
+         local: true,
+         classfication: true,
+         categories: true,
+         user: {
+            select: { id: true, name: true, email: true },
+         },
+      },
       skip,
       take,
       orderBy: { createdAt: "desc" },

@@ -6,9 +6,13 @@ export const getOne = async (id: string) => {
       include: {
          local: true,
          classfication: true,
+         status: true,
          categories: true,
          links: true,
          files: true,
+         user: {
+            select: { id: true, name: true, email: true },
+         },
       },
    });
 
