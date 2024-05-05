@@ -1,5 +1,7 @@
 API do Lu Task Manager
 
+Fastify (NodeJS) + PostgreSQL
+
 ## Instruções
 
 Para subir executar o projeto em desenvolvimento, você deverá configurar as variáveis de ambiente e rodar o seguinte comando.
