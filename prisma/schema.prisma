@@ -27,7 +27,7 @@ model Task {
   local           Local?          @relation(fields: [localId], references: [id], onDelete: SetNull)
   classficationId String?
   classfication   Classification? @relation(fields: [classficationId], references: [id], onDelete: SetNull)
-  title           String          @db.VarChar(20)
+  title           String          @db.VarChar(120)
   categories      Category[]
   description     String
   statusId        String?

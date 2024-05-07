@@ -18,7 +18,7 @@ export const taskSchema = z.object({
    local: localSchema.optional(),
    classificationId: z.string().min(1).nullish(),
    classification: classificationSchema.optional(),
-   title: z.string().min(1).max(20),
+   title: z.string().min(1).max(120),
    categories: z.array(categorySchema),
    description: z.string().min(1),
    statusId: z.string().min(1).nullish(),

@@ -2,6 +2,8 @@ import { prisma } from "../../database/prisma";
 import { TTaskUpdateData } from "../../schemas/task.schema";
 
 export const update = async (id: string, userId: string, data: TTaskUpdateData) => {
+   const now = new Date();
+
    const user = await prisma.user.findUnique({ where: { id: userId } });
 
    const task = await prisma.task.update({
@@ -20,6 +22,7 @@ export const update = async (id: string, userId: string, data: TTaskUpdateData) 
             deleteMany: data.deletingLinks,
          },
          files: { set: data.files },
+         updatedAt: now
       },
    });
 

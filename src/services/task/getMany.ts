@@ -28,6 +28,8 @@ export const getMany = async (
          classfication: true,
          status: true,
          categories: true,
+         links: true,
+         files: true,
          user: {
             select: { id: true, name: true, email: true },
          },
