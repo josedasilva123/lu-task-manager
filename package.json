@@ -4,8 +4,7 @@
    "description": "",
    "main": "index.js",
    "scripts": {
-      "start": "node dist/app.js",
-      "build": "npx tsc",
+      "start": "ts-node src/server.ts",
       "dev": "tsnd --env-file .env src/server.ts",
       "migrate": "npx prisma migrate deploy"
    },
@@ -26,6 +25,7 @@
       "@fastify/jwt": "^8.0.0",
       "@prisma/client": "^5.12.1",
       "fastify": "^4.26.2",
+      "ts-node": "^10.9.2",
       "zod": "^3.22.4"
    }
 }
