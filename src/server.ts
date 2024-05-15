@@ -1,7 +1,7 @@
 import { app } from "./app";
 
-const port = 10000;
+const port = process.env.PORT || 3001;
 
-app.listen({ port: Number(port) }, () => {
+app.listen({ host: "0.0.0.0", port: Number(port) }, () => {
     console.log(`API successfully started at port ${port}`);
 })
