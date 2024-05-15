@@ -1,10 +1,11 @@
 import fastify from "fastify";
 import fastifyCors from "@fastify/cors";
 import fastifyJwt from "@fastify/jwt";
+import fastifyHelmet from "@fastify/helmet";
+
 import { env } from "./env";
 import { errorHandler } from "./error/error";
 import { routes } from "./routes";
-import fastifyHelmet from "@fastify/helmet";
 
 export const app = fastify();
 
