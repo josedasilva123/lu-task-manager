@@ -4,7 +4,7 @@
    "description": "",
    "main": "index.js",
    "scripts": {
-      "start": "node dist/server.js",
+      "start": "node dist/app.js",
       "build": "npx tsc",
       "dev": "tsnd --env-file .env src/server.ts",
       "migrate": "npx prisma migrate deploy"
