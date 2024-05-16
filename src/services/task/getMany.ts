@@ -9,6 +9,7 @@ export const getMany = async (
    const where = {
       categories: filters.categoryId ? { some: { id: filters.categoryId } } : undefined,
       statusId: filters.statusId,
+      localId: filters.localId,
       date: filters.date ? { lte: new Date(filters.date) } : undefined,
       OR: filters.search
          ? [

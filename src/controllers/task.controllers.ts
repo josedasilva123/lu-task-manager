@@ -43,6 +43,7 @@ export const taskControllers = async (fastify: FastifyInstance) => {
          search: req.query.search,
          categoryId: req.query.categoryId,
          statusId: req.query.statusId,
+         localId: req.query.localId,
          date: req.query.date,
       };
 

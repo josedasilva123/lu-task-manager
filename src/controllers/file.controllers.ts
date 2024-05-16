@@ -26,6 +26,7 @@ export const fileControllers = async (fastify: FastifyInstance) => {
 
          const data: TFileCreateData = {
             name: req.body.name,
+            description: req.body.description,
             key: sign.fileKey,
             url: `${env.S3_BUCKET_BASE_URL}${sign.fileKey}`,
          };
