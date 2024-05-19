@@ -12,7 +12,7 @@ export const app = fastify();
 app.register(fastifyCors, {
    origin: [
       "https://lu-task-manager-front-end.vercel.app",
-      "https://lu-task-manager-front-end.onrender.com/",
+      "https://lu-task-manager-front-end.onrender.com",
    ],
 });
 
