@@ -20,7 +20,7 @@ export const taskSchema = z.object({
    classification: classificationSchema.optional(),
    title: z.string().min(1).max(120),
    categories: z.array(categorySchema),
-   description: z.string().min(1),
+   description: z.string().optional(),
    statusId: z.string().min(1).nullish(),
    status: statusSchema.optional(),
    links: z.array(linkSchema),
