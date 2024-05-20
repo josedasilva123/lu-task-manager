@@ -5,7 +5,7 @@ export const create = async (userId: string, data: TTaskCreateData) => {
    const task = await prisma.task.create({
       data: {
          localId: data.localId,
-         classficationId: data.classificationId,
+         classficationId: data.classficationId,
          title: data.title,
          description: data.description,
          statusId: data.statusId,

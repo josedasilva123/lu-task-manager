@@ -10,7 +10,7 @@ export const update = async (id: string, userId: string, data: TTaskUpdateData) 
       where: { id },
       data: {
          localId: data.localId,
-         classficationId: data.classificationId,
+         classficationId: data.classficationId,
          title: data.title,
          description: data.description,
          statusId: data.statusId,
@@ -22,7 +22,7 @@ export const update = async (id: string, userId: string, data: TTaskUpdateData) 
             deleteMany: data.deletingLinks,
          },
          files: { set: data.files },
-         updatedAt: now
+         updatedAt: now,
       },
    });
 

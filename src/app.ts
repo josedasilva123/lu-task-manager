@@ -9,12 +9,12 @@ import { routes } from "./routes";
 
 export const app = fastify();
 
-app.register(fastifyCors, {
+app.register(fastifyCors, /* {
    origin: [
       "https://lu-task-manager-front-end.vercel.app",
       "https://lu-task-manager-front-end.onrender.com",
    ],
-});
+} */);
 
 app.register(fastifyHelmet);
 

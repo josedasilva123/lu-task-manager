@@ -16,8 +16,8 @@ export const taskSchema = z.object({
    id: z.string().min(1),
    localId: z.string().min(1).nullish(),
    local: localSchema.optional(),
-   classificationId: z.string().min(1).nullish(),
-   classification: classificationSchema.optional(),
+   classficationId: z.string().min(1).nullish(),
+   classfication: classificationSchema.optional(),
    title: z.string().min(1).max(120),
    categories: z.array(categorySchema),
    description: z.string().min(1),
@@ -38,7 +38,7 @@ export type TTask = z.infer<typeof taskSchema>;
 export const taskCreateSchema = taskSchema
    .pick({
       localId: true,
-      classificationId: true,
+      classficationId: true,
       title: true,
       description: true,
       statusId: true,
@@ -57,7 +57,7 @@ export type TTaskCreateData = z.infer<typeof taskCreateSchema>;
 export const taskUpdateSchema = taskSchema
    .pick({
       localId: true,
-      classificationId: true,
+      classficationId: true,
       title: true,
       description: true,
       statusId: true,
