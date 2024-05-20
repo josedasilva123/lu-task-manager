@@ -25,8 +25,8 @@ model Task {
   id              String          @id @default(uuid())
   localId         String?
   local           Local?          @relation(fields: [localId], references: [id], onDelete: SetNull)
-  classficationId String?
-  classfication   Classification? @relation(fields: [classficationId], references: [id], onDelete: SetNull)
+  classificationId String?
+  classification   Classification? @relation(fields: [classificationId], references: [id], onDelete: SetNull)
   title           String          @db.VarChar(120)
   categories      Category[]
   description     String?

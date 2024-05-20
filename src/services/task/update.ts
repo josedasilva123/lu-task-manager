@@ -10,7 +10,7 @@ export const update = async (id: string, userId: string, data: TTaskUpdateData) 
       where: { id },
       data: {
          localId: data.localId,
-         classficationId: data.classficationId,
+         classificationId: data.classificationId,
          title: data.title,
          description: data.description,
          statusId: data.statusId,

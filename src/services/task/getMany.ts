@@ -26,7 +26,7 @@ export const getMany = async (
       where,
       include: {
          local: true,
-         classfication: true,
+         classification: true,
          status: true,
          categories: true,
          links: true,

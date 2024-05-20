@@ -5,7 +5,7 @@ export const getOne = async (id: string) => {
       where: { id },
       include: {
          local: true,
-         classfication: true,
+         classification: true,
          status: true,
          categories: true,
          links: true,
