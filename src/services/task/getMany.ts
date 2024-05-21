@@ -10,7 +10,13 @@ export const getMany = async (
       categories: filters.categoryId ? { some: { id: filters.categoryId } } : undefined,
       statusId: filters.statusId,
       localId: filters.localId,
-      date: filters.date ? { lte: new Date(filters.date) } : undefined,
+      date:
+         filters.minDate || filters.maxDate
+            ? {
+                 gte: filters.minDate ? new Date(filters.minDate) : undefined,
+                 lte: filters.maxDate ? new Date(filters.maxDate) : undefined,
+              }
+            : undefined,
       OR: filters.search
          ? [
               { title: { contains: filters.search } },

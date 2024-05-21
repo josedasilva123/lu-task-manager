@@ -3,5 +3,6 @@ export interface IFilters {
    categoryId?: string;
    statusId?: string;
    localId?: string;
-   date?: string;
+   minDate?: string;
+   maxDate?: string;
 }
