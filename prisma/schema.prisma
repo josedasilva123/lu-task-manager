@@ -30,6 +30,7 @@ model Task {
   title           String          @db.VarChar(120)
   categories      Category[]
   description     String?
+  owner           String?         @db.VarChar(20)
   statusId        String?
   status          Status?         @relation(fields: [statusId], references: [id], onDelete: SetNull)
   links           Link[]

@@ -21,6 +21,7 @@ export const taskSchema = z.object({
    title: z.string().min(1).max(120),
    categories: z.array(categorySchema),
    description: z.string().optional(),
+   owner: z.string().optional(),
    statusId: z.string().min(1).nullish(),
    status: statusSchema.optional(),
    links: z.array(linkSchema),
@@ -41,6 +42,7 @@ export const taskCreateSchema = taskSchema
       classificationId: true,
       title: true,
       description: true,
+      owner: true,
       statusId: true,
       date: true,
    })
@@ -60,6 +62,7 @@ export const taskUpdateSchema = taskSchema
       classificationId: true,
       title: true,
       description: true,
+      owner: true,
       statusId: true,
       date: true,
    })
