@@ -17,12 +17,14 @@ export const getMany = async (
                  lte: filters.maxDate ? new Date(filters.maxDate) : undefined,
               }
             : undefined,
+      owner: filters.owner ? { contains: filters.owner } : undefined,
       OR: filters.search
          ? [
               { title: { contains: filters.search } },
               { description: { contains: filters.search } },
            ]
          : undefined,
+
       isDeleted: false,
    };
 
@@ -43,7 +45,7 @@ export const getMany = async (
       },
       skip,
       take,
-      orderBy: { createdAt: "desc" },
+      orderBy: { updatedAt: "desc" },
    });
 
    return { count, tasks };

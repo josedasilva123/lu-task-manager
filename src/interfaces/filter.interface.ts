@@ -5,4 +5,5 @@ export interface IFilters {
    localId?: string;
    minDate?: string;
    maxDate?: string;
+   owner?: string;
 }
