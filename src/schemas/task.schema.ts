@@ -21,7 +21,7 @@ export const taskSchema = z.object({
    title: z.string().min(1).max(120),
    categories: z.array(categorySchema),
    description: z.string().optional(),
-   owner: z.string().optional(),
+   owner: z.string().optional().max(20),
    statusId: z.string().min(1).nullish(),
    status: statusSchema.optional(),
    links: z.array(linkSchema),
