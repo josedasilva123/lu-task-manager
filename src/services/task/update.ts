@@ -13,6 +13,7 @@ export const update = async (id: string, userId: string, data: TTaskUpdateData) 
          classificationId: data.classificationId,
          title: data.title,
          description: data.description,
+         owner: data.owner,
          statusId: data.statusId,
          date: data.date,
          lastUserName: user?.name,

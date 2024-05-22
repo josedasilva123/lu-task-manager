@@ -8,6 +8,7 @@ export const create = async (userId: string, data: TTaskCreateData) => {
          classificationId: data.classificationId,
          title: data.title,
          description: data.description,
+         owner: data.owner,
          statusId: data.statusId,
          date: data.date,
          categories: {
