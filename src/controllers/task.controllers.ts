@@ -46,6 +46,7 @@ export const taskControllers = async (fastify: FastifyInstance) => {
          localId: req.query.localId,
          minDate: req.query.minDate,
          maxDate: req.query.maxDate,
+         owner: req.query.owner,
       };
 
       const pagination: IPagination = {
