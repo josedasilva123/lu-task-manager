@@ -2,6 +2,8 @@ import { prisma } from "../../database/prisma";
 import { TTaskCreateData } from "../../schemas/task.schema";
 
 export const create = async (userId: string, data: TTaskCreateData) => {
+   const now = new Date();
+
    const task = await prisma.task.create({
       data: {
          localId: data.localId,
@@ -21,6 +23,7 @@ export const create = async (userId: string, data: TTaskCreateData) => {
             connect: data.files,
          },
          userId,
+         updatedAt: now
       },
    });
 
