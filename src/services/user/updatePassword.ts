@@ -9,7 +9,7 @@ export const updatePassword = async (
   const user = await prisma.user.findFirst({ where: { id: userId } });
 
   if (user?.password !== oldPassword) {
-    throw new AppError("Incorrect password", 401);
+    throw new AppError("Incorrect password.", 401);
   }
 
   await prisma.user.update({
