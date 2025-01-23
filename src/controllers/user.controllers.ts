@@ -5,6 +5,7 @@ import {
   TUserUpdatePasswordData,
   userCreateSchema,
   userLoginSchema,
+  userUpdatePasswordSchema,
 } from "../schemas/user.schema";
 import { userService } from "../services/user/_index";
 import { validateBody } from "../hooks/validateBody";
@@ -53,7 +54,7 @@ export const userControllers = async (fastify: FastifyInstance) => {
     {
       onRequest: authenticate,
       preHandler: async (req, res) => {
-        validateBody(req, res, userLoginSchema);
+        validateBody(req, res, userUpdatePasswordSchema);
       },
     },
     async (req, res) => {
